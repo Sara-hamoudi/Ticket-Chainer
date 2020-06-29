@@ -27,7 +27,7 @@
         "datatables.net-fixedheader": "^3.1.6",
         "datatables.net-responsive": "^2.2.3",
         "daterangepicker": "^3.0.5",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "moment": "^2.24.0",
         "mustache": "^3.1.0",
         "pace": "^0.0.4",
