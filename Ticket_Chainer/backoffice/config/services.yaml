@@ -1,0 +1,24 @@
+imports:
+    - { resource: '@ApiBundle/Resources/config/' }
+parameters:
+    locale: 'fr'
+    redis.host: '%env(REDIS_HOST)%'
+    redis.port: '%env(int:REDIS_PORT)%'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $projectDir: '%kernel.project_dir%'
+
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\Security\LoginFormAuthenticator:
+        $userProvider: '@security.user.provider.concrete.backend_users'

@@ -1,0 +1,5 @@
+{% macro top_main_button(label, path ,iconClass) %}
+    <a  href="{{ path }}"
+            class="btn btn-dark box-shadow-1 btn-md btn-square btn-block"><i
+                class="{{ iconClass }}"></i> {{ label }}</a>
+{% endmacro %}

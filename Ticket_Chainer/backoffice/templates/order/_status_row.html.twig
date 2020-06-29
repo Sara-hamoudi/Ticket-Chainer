@@ -1,0 +1,21 @@
+{% set enumClass = 'TicketChainer\\ApiBundle\\Enum\\OrderStatus' %}
+{% if status == constant(enumClass~'::COMPLETED') %}
+    {% set title = 'Finalisée' %}
+    {% set iconClass = 'fa-check-circle green' %}
+{% elseif status == constant(enumClass~'::PAYMENT_PENDING') %}
+    {% set title = 'En attente de paiement' %}
+    {% set iconClass = 'fa-clock-o orange' %}
+{% elseif status == constant(enumClass~'::FAILED') %}
+    {% set title = 'Echouée' %}
+    {% set iconClass = 'fa-check-circle green' %}
+{% elseif status == constant(enumClass~'::FAILED') %}
+    {% set title = 'Echouée' %}
+    {% set iconClass = 'fa-check-circle green' %}
+{% elseif status == constant(enumClass~'::FAILED') %}
+    {% set title = 'Echouée' %}
+    {% set iconClass = 'fa-check-circle green' %}
+{% else %}
+    {% set title = 'Inconnue' %}
+    {% set iconClass = 'fa-check-circle gray' %}
+{% endif %}
+<i class="fa {{ iconClass }}" title="{{title}}" style="cursor: help; font-size: 24px"></i>

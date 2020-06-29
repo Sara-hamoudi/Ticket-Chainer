@@ -1,0 +1,44 @@
+{% extends 'common/base/layout.html.twig' %}
+{% import 'common/macros/buttons.html.twig' as buttons %}
+{% block title %}Matchs{% endblock %}
+{% block content_header_title %}Matchs{% endblock %}
+{% block content_header_left %}
+    {{ buttons.top_main_button('Nouveau',path('game_create'),'ft-plus') }}
+{% endblock %}
+{% block content_body %}
+    <section id="gameList">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+                            <table id="gameDataTable" class="table table-striped table-bordered" style="width: 100%">
+                                <thead>
+                                <tr>
+                                    <th>Équipe adverse</th>
+                                    <th>Date</th>
+                                    <th>Statut</th>
+                                    <th>Vente</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% include 'common/datatable/action_buttons_tpl.html.twig' %}
+{% include 'common/datatable/status_row_tpl.html.twig' %}
+{% include 'game/_progressbar_tpl.html.twig' %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+
+    </script>
+{% endblock %}
+
+
+{% endblock %}

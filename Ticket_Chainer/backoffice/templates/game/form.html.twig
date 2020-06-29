@@ -1,0 +1,81 @@
+{% extends 'common/base/layout.html.twig' %}
+{% import 'common/macros/buttons.html.twig' as buttons %}
+{% form_theme gameForm with ['bootstrap_4_horizontal_layout.html.twig','common/form/fields.html.twig'] %}
+{% set current_path = app.request.get('_route') %}
+{% set isNew = current_path == 'game_create' %}
+{% set title = isNew ? 'Nouveau match' : 'Modifier le match' %}
+{% block title %}{{ title }}{% endblock %}
+{% block content_header_title %}{{ title }}{% endblock %}
+{% block content_header_left %}
+    {{ buttons.top_main_button('Liste des matchs',path('game_list'),'ft-list') }}
+{% endblock %}
+{% block content_body %}
+    <section id="gameForm">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="card-body">
+                            {{ form_start(gameForm) }}
+                            <div class="form-body">
+                                <h4 class="form-section"><i class="ft-edit-3"></i> Informations de base</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        {{ form_row(gameForm.opponent) }}
+                                        {{ form_row(gameForm.date, { 'attr': {'class': 'text-center bg-white', 'readonly': 'true'} }) }}
+                                        {{ form_row(gameForm.matchday) }}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{ form_row(gameForm.stadium, { 'attr': { 'readonly': 'true'} }) }}
+                                        {{ form_row(gameForm.title) }}
+                                        {{ form_row(gameForm.description , { 'attr': {'rows': 3} }) }}
+                                    </div>
+                                </div>
+                                <h4 class="form-section"><i class="ft-image"></i> Photos</h4>
+                                {{ form_widget(gameForm.images) }}
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6 text-left">
+                                        {{ form_widget(gameForm.cancel, { 'attr': {'class': 'btn btn-default btn-square mr-1'} }) }}
+                                        {{ form_widget(gameForm.save, { 'attr': {'class': 'btn btn-dark btn-square'} }) }}
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        {{ form_widget(gameForm.status, { 'attr': {'class': 'switchery', 'data-size': 'md'} }) }}
+                                    </div>
+                                </div>
+                            </div>
+                            {{ form_end(gameForm, {'render_rest': true}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% if not isNew %}
+        <section id="gameTicketStock">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-body">
+                                {{ form_start(ticketStockForm) }}
+                                <div class="form-body">
+                                    <h4 class="form-section"><i class="fa fa-ticket"></i> Billetterie</h4>
+                                    {{ form_row(ticketStockForm.stockInitial) }}
+                                    {{ form_row(ticketStockForm.stock) }}
+                                </div>
+                                <div class="form-actions text-left">
+                                    {{ form_widget(ticketStockForm.cancel, { 'attr': {'class': 'btn btn-default btn-square mr-1'} }) }}
+                                    {{ form_widget(ticketStockForm.save, { 'attr': {'class': 'btn btn-dark btn-square'} }) }}
+                                </div>
+                                {{ form_end(ticketStockForm, {'render_rest': true}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

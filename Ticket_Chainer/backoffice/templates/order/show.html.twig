@@ -1,0 +1,58 @@
+{% extends 'common/base/modal_layout.html.twig' %}
+{% block modal_title %}Commande N°<strong>{{ order.id }}</strong>{% endblock %}
+{% block modal_body %}
+    <div class="row">
+        <div class="col-md-12">
+                <div class="col-md-6 mb-1 p-1 bg-light-blue bg-lighten-5">
+                    {% set user = order.user %}
+                    {% set address = user.address %}
+
+                    {{ user.name|capitalize }} {{ user.surname|upper }}
+                    <br>
+                    {{address.line1}}<br>
+                    {% if address.line2 %}
+                        {{address.line2}}<br>
+                    {% endif %}
+                    {% if address.line3 %}
+                        {{address.line3}}<br>
+                    {% endif %}
+                    {{address.postalCode}} {{address.city}}<br>
+                    {{address.country}}
+
+                    <br>
+                    <br>
+                    <strong>Téléphone</strong>:  {{ user.phone }}
+                    <br>
+                    <strong>E-mail</strong>:  {{ user.email|lower }}
+                </div>
+            <table class="table table-striped table-borderless table-de">
+                <thead class="thead-dark">
+                    <th>Réf</th>
+                    <th>Produit</th>
+                    <th>Prix unitaire.</th>
+                    <th>Qté.</th>
+                    <th>Total.</th>
+                </thead>
+                <tbody>
+                {% for line in order.lines %}
+                    <tr>
+                        <td>{{line.product.id}}</td>
+                        <td>{{line.product.name}}</td>
+                        <td>{{line.unitPrice|round(1, 'floor')}} €</td>
+                        <td>{{line.quantity}}</td>
+                        <td>{{line.totalAmount|round(1, 'floor')}} €</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot class="bg-yellow bg-lighten-4">
+                    <th colspan="4"></th>
+                    <th>{{order.totalAmount}} €</th>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+{% block modal_footer %}
+<button class="btn btn-default" data-dismiss="modal">Fermer</button>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+.idea
+.env
+.env.staging
+.env.prod
+docker/var/*
+apps/php-sources/*
+!apps/php-sources/.gitkeep
+apps/nodejs-sources/*
+!apps/nodejs-sources/.gitkeep

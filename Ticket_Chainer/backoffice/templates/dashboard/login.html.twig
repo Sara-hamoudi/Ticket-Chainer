@@ -1,0 +1,113 @@
+{% block title %}Hello {% endblock %}
+
+{% block body %}
+
+    <link rel="stylesheet" href="/build/main.css">
+
+
+    <link rel="stylesheet" href="/build/style1.css">
+    <script src="/vendor/vendors/js/extensions/pace.min.js"></script>
+    <style>
+        *{-webkit-box-sizing: unset;
+            -moz-box-sizing: unset;
+            box-sizing: unset;}
+        .alert {
+            position: absolute;
+            margin-top: 24px;
+            margin-left: 21px;
+            text-align: center;
+        }
+
+        @media (max-width: 729px) {
+            .alert {
+                position: absolute;
+                margin-top: 24px;
+                margin-left: 21px;
+                text-align: center;
+                transform: translate(82px, 6px);
+            }
+
+        }
+    </style>
+    <body>
+    <header>
+        <a href="#home" class="logo" data-scroll>Ticket Chainer</a>
+        <nav class="nav-bar" id="nav-bar">
+            <ul>
+                <li class="menu1"><a href="#home" data-scroll>Acceuil</a></li>
+                <li class="menu2"><a href="#about" data-scroll>Nos services</a></li>
+                <li class="menu3"><a href="#projects" data-scroll>Références</a></li>
+                <li class="menu4"><a href="#blog" data-scroll>Contact</a></li>
+            </ul>
+        </nav>
+        <div id='pet' class="pet"><i id='fe' class="fas fa-bars"></i></div>
+        <div id='fo' class="pet"><i  class="fas fa-times"></i></div>
+    </header>
+
+    <div class="all20">
+        <div class="all" id="all">
+            <div class="all1 all-bex " id="all1">
+                <form action="#">
+                    <h1 >Bienvenue </h1>
+                    <p>Merci de vous connecter</p>
+
+                </form>
+            </div>
+            <div class="all1 all-bexi" id="all2">
+
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey }}
+                    </div>
+                {% endif %}
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+                <form action="{{ path('login') }}" method="post">
+                    <h1>Connexion</h1>
+                    <p>connectez-vous et proposez vos tickets</p>
+                    <input type="text" id="username" name="_username" placeholder="Nom d'utilisateur" required autofocus>
+                    <input type="password" id="password" name="_password" placeholder="Mot de Passe" required>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <a class="link" href="#">Mot de passe oublié?</a><button type="submit">Connexion </button>
+                </form>
+            </div>
+            <div class="poulet" id="poulet">
+                <div class="patate" id="patate">
+                    <div class="banane banane1" id="banane1">
+                        <h1 class="hidden">Vous connecter?</h1>
+                        <p class="hidden">L'équipe vous souhaite le bienvenue!</p>
+                        <button class="banana" id="cdt">Se connecter</button>
+                    </div>
+                    <div class="banane banane2" id="banane2">
+                        <h1 class="banana" id="cdt2">Ticket Chainer</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="/build/index.js"></script>
+        <script>
+            var bton = document.getElementById('pet');
+            var bton2 = document.getElementById('fo');
+            bton.addEventListener("click", function() {
+                document.getElementById("nav-bar").style.left = 0;
+                document.getElementById("fe").style.display = "none";
+                bton2.style.display = "block";
+            });
+            bton2.addEventListener("click", function() {
+                console.log(bton)
+                document.getElementById("nav-bar").style.left = "-100%";
+                document.getElementById("fe").style.display = "block";
+                bton2.style.display = "none";
+            });
+        </script>
+    </div>
+    </body>
+<script src="/build/runtime.js"></script><script src="/build/vendors~app.js"></script><script src="/build/app.js"></script>
+<script src="/bundles/bazingajstranslation/js/translator.min.js"></script>
+<script src="/translations"></script>
+{% endblock %}

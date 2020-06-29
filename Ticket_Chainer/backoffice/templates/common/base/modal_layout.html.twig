@@ -1,0 +1,20 @@
+{#<div id="" class="modal text-left" id="modal" tabindex="-1" role="dialog" aria-hidden="true">#}
+{#    <div class="modal-dialog modal-md" role="document">#}
+{#        <div class="modal-content">#}
+            <div class="modal-header">
+                <h4 class="modal-title">{% block modal_title %}{% endblock %}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ft-x"></i>
+                </button>
+            </div>
+            {% block form_tag_open %}{% endblock %}
+            <div class="modal-body">
+                {% block modal_body %}{% endblock %}
+            </div>
+            <div class="modal-footer">
+                {% block modal_footer %}{% endblock %}
+            </div>
+            {% block form_tag_close %}{% endblock %}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}

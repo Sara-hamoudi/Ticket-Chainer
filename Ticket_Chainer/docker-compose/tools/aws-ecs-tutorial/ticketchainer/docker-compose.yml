@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    image: 599748214516.dkr.ecr.eu-west-1.amazonaws.com/nodejs:latest
+    ports:
+      - "8080:8080"
+    command: "yarn install --production=false && yarn start"
+    volumes:
+      - /srv/app:/srv/app
+    logging:
+      driver: awslogs
+      options: 
+        awslogs-group: ticketchainer-stage
+        awslogs-region: eu-west-1
+        awslogs-stream-prefix: api
+    environment:
+        - NODE_ENV=development
+        - NODE_PORT=8080
+        - POSTGRES_HOST=postgresql-stage-rds.ccbsjbbyyp9b.eu-west-1.rds.amazonaws.com
+        - POSTGRES_INITDB_ARGS="--encoding=UTF8"
+        - POSTGRES_USER=ticketchainer
+        - POSTGRES_PASSWORD=r3n!ahc!8kiT
+        - POSTGRES_DB=ticketchainer_staging
+        - POSTGRES_PORT=5432
+        - REDIS_HOST=redis-stage-elasticache.8okuao.0001.euw1.cache.amazonaws.com
+        - REDIS_PORT=6379

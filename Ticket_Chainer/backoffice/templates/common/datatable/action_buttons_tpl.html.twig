@@ -1,0 +1,32 @@
+<noscript id="action_btn_view_tpl" type="x-tmpl-mustache">
+    <button title="{{ 'button.view'|trans }}"
+            data-modal-url="{{ '{{ modalUrl }}' }}"
+            data-modal-size="{{ '{{ modalSize }}' }}"
+            type="button" class="table-btn-view btn btn-success btn-square btn-sm box-shadow-1"
+    >
+        <i class="font-medium-1 ft-eye"></i>
+    </button>
+</noscript>
+
+<noscript id="action_btn_edit_tpl" type="x-tmpl-mustache">
+    <button title="{{ 'button.edit'|trans }}"
+            onclick="window.location='{{ '{{ url }}' }}'"
+            type="button"
+            class="table-btn-edit btn btn-info btn-square btn-sm box-shadow-1"
+    >
+        <i class="font-medium-1 ft-edit-2"></i>
+    </button>
+</noscript>
+
+<noscript id="action_btn_delete_tpl" type="x-tmpl-mustache">
+    <button title="{{ 'button.delete'|trans }}"
+            data-action="dt.row.delete"
+            data-id="{{ '{{ id }}' }}"
+            data-title="{{ '{{ title }}' }}"
+            type="button"
+            class="table-btn-delete btn btn-danger btn-square btn-sm box-shadow-1"
+    >
+        <i class="font-medium-1 ft-trash-2"></i>
+    </button>
+</noscript>
+

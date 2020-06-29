@@ -1,0 +1,16 @@
+# Game statuses
+game.status.draft: Brouillon
+game.status.published: Publié
+game.status.unpublished: Dépublié
+
+# Buttons
+button.save: Enregistrer
+button.cancel: Annuler
+button.delete: Supprimer
+button.validate: Valider
+button.view: Afficher
+button.edit: Modifier
+
+
+# Confirmation messages
+confimation.delete: êtes-vous sûr de vouloir supprimer %s

@@ -1,0 +1,20 @@
+homepage:
+  path: /
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction
+  defaults:
+    path: /dashboard
+    permanent: true
+
+login:
+  path: /login
+  controller: App\Controller\LoginController::login
+  methods: GET|POST
+
+
+index1:
+  path:       /dogy/login
+  controller: App\Controller\SecurityController::login
+  methods: GET|POST
+
+api_login_check:
+  path: /api/login_check

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html class="loading" lang="{{ app.request.locale|split('_')[0] }}" data-textdirection="ltr">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="author" content="TicketChainer">
+    <title>{% block title %}{% endblock %} - Backoffice</title>
+    <link rel="apple-touch-icon" href="{{ asset('/vendor/images/ico/apple-icon-120.png') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/vendor/images/ico/favicon.ico') }}">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('main') }}
+    {% endblock %}
+    <script src="{{ asset('/vendor/vendors/js/extensions/pace.min.js') }}"></script>
+    {% include 'common/base/_vars.html.twig' %}
+</head>
+<body class="vertical-layout vertical-menu 2-columns menu-expanded fixed-navbar" data-open="click"
+      data-menu="vertical-menu" data-col="2-columns">
+
+{% include 'common/base/header_navbar.html.twig' %}
+
+{% include 'common/base/main_menu.html.twig' %}
+
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row">
+
+            <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+                <h4 class="content-header-title mb-0 d-inline-block">{% block content_header_title %}{% endblock %}</h4>
+                <div class="row d-inline-block">
+                    {% block content_header_left %}{% endblock %}
+                </div>
+            </div>
+            <div class="content-header-right col-md-4 col-12">
+                {% block content_header_right %}{% endblock %}
+            </div>
+        </div>
+        <div class="content-body">
+            {% block content_body %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% include 'common/parts/modal_tpl.html.twig' %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    <script src="{{ asset('bundles/bazingajstranslation/js/translator.min.js') }}"></script>
+    <script src="{{ path('bazinga_jstranslation_js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CMuli:300,400,500,700');
+@import url('../robust-admin/css/vendors.css');
+
+
+// dataTables stylesheets
+@import url('../robust-admin/vendors/css/tables/datatable/datatables.min.css');
+@import url('../robust-admin/vendors/css/tables/extensions/responsive.dataTables.min.css');
+@import url('../robust-admin/vendors/css/tables/extensions/buttons.dataTables.min.css');
+@import url('../robust-admin/vendors/css/tables/datatable/dataTables.bootstrap4.min.css');
+@import url('../robust-admin/vendors/css/tables/datatable/buttons.bootstrap4.min.css');
+@import url('../robust-admin/vendors/css/tables/extensions/fixedHeader.dataTables.min.css');
+
+@import url('~toastr/build/toastr.css');
+@import url('../robust-admin/css/plugins/extensions/toastr.css');
+@import url('../robust-admin/vendors/css/forms/selects/select2.min.css');
+@import url('../robust-admin/vendors/css/forms/toggle/switchery.min.css');
+@import url('../robust-admin/vendors/css/pickers/daterange/daterangepicker.css');
+@import url('~pace-js/themes/blue/pace-theme-minimal.css');
+
+@import url('../robust-admin/css/app.css');
+@import url('../robust-admin/css/core/menu/menu-types/vertical-menu.css');
+@import url('../robust-admin/css/core/colors/palette-gradient.min.css');
+@import url('../robust-admin/fonts/meteocons/style.min.css');
+@import url('../robust-admin/css/plugins/loaders/loaders.min.css');
+
+@import url('./overrides.scss');
+

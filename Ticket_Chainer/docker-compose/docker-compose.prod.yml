@@ -1,0 +1,53 @@
+version: '3'
+services:
+  html2pdf:
+    build:
+      context: ${DOCKER_BUILD_DIR}/html2pdf
+      args:
+        UID: ${DOCKER_UID}
+        GID: ${DOCKER_GID}
+    container_name: html2pdf
+    volumes:
+      - ${HTML2PDF_APP_PATH}:/srv/app:cached
+    ports:
+      - 8181:${NODE_PORT}
+    command: ${NODE_COMMAND}
+    env_file:
+      - .env
+  nodejs:
+    build:
+      context: ${DOCKER_BUILD_DIR}/nodejs
+      args:
+        UID: ${DOCKER_UID}
+        GID: ${DOCKER_GID}
+    container_name: nodejs
+    volumes:
+      - ${API_APP_PATH}:/srv/app:cached
+    ports:
+      - 8080:${NODE_PORT}
+    command: ${NODE_COMMAND}
+    env_file:
+      - .env
+  php:
+    build:
+      context: ${DOCKER_BUILD_DIR}/php
+      args:
+        UID: ${DOCKER_UID}
+        GID: ${DOCKER_GID}
+    container_name: php
+    volumes:
+      - ${PHP_APPS_PATH}:/var/www:cached
+    env_file:
+      - .env
+  nginx:
+    build:
+      context: ${DOCKER_BUILD_DIR}/nginx
+    restart: always
+    container_name: nginx
+    ports:
+      - 80:${NGINX_PORT}
+    depends_on:
+      - php
+    volumes:
+      - ${PHP_APPS_PATH}:/var/www:cached
+      - ${NGINX_LOG_DIR}:/var/log/nginx

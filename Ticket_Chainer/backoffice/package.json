@@ -1,0 +1,44 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.28.0",
+        "copy-webpack-plugin": "^5.0.5",
+        "core-js": "^3.0.0",
+        "node-sass": "^4.13.0",
+        "regenerator-runtime": "^0.13.2",
+        "sass-loader": "^7.0.1",
+        "script-loader": "^0.7.2",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "bootstrap": "4.3.1",
+        "datatables.net": "^1.10.20",
+        "datatables.net-autofill": "^2.3.4",
+        "datatables.net-bs4": "^1.10.20",
+        "datatables.net-buttons": "^1.6.1",
+        "datatables.net-buttons-bs4": "^1.6.1",
+        "datatables.net-fixedheader": "^3.1.6",
+        "datatables.net-responsive": "^2.2.3",
+        "daterangepicker": "^3.0.5",
+        "jquery": "^3.4.1",
+        "moment": "^2.24.0",
+        "mustache": "^3.1.0",
+        "pace": "^0.0.4",
+        "pace-js": "^1.0.2",
+        "popper.js": "^1.16.0",
+        "select2": "^4.0.12",
+        "sweetalert2": "^9.3.6",
+        "switchery": "^0.0.2",
+        "toastr": "^2.1.4",
+        "uuid": "^3.3.3",
+        "voca": "^1.4.0",
+        "whatwg-fetch": "^3.0.0"
+    }
+}

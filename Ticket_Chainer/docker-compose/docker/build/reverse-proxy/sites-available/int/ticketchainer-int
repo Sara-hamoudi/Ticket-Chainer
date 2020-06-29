@@ -1,0 +1,44 @@
+upstream symfony_app{
+    server nginx:80;
+}
+
+upstream api_app {
+    server nodejs:8080;
+}
+
+upstream html2pdf_app {
+    server html2pdf:8080;
+}
+
+server {
+    server_name int.backoffice.ticketchainer.com int.afbobigny.ticketchainer.com;
+
+    location / {
+        proxy_pass http://symfony_app;
+        proxy_set_header    Host $host;
+        proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 30;
+        proxy_send_timeout 30;
+    }
+}
+
+server {
+    server_name int.api.ticketchainer.com;
+
+    location / {
+        proxy_pass http://api_app;
+        proxy_set_header    Host $host;
+        proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 30;
+        proxy_send_timeout 30;
+    }
+
+    location /html2pdf {
+        proxy_pass http://html2pdf_app;
+        proxy_set_header    Host $host;
+        proxy_set_header    X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_connect_timeout 30;
+        proxy_send_timeout 30;
+    }
+
+}

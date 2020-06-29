@@ -1,0 +1,37 @@
+{% extends 'common/base/layout.html.twig' %}
+{% import 'common/macros/buttons.html.twig' as buttons %}
+{% block title %}Utilisateurs{% endblock %}
+{% block content_header_title %}Utilisateurs{% endblock %}
+{% block content_header_left %}
+
+{% endblock %}
+{% block content_body %}
+    <section id="userList">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+                            <table id="userDataTable" class="table table-striped table-bordered" style="width: 100%">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Date de naissance</th>
+                                    <th>Date inscription</th>
+                                    <th>Localisation</th>
+                                    <th>Statut</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% include 'common/datatable/action_buttons_tpl.html.twig' %}
+{% endblock %}
+
+
+

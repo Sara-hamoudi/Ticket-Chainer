@@ -1,0 +1,5 @@
+{{ user.name|capitalize }} {{ user.surname|upper }}
+<button data-modal-url="{{ path('user_show', {id: user.id}) }}"
+        data-modal-size="" class="btn btn-sm btn-default pull-right" >
+    <i class="fa fa-search"></i>
+</button>

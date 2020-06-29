@@ -1,0 +1,29 @@
+{% set current_route = app.request.get('_route') %}
+<div class="main-menu menu-fixed menu-accordion menu-shadow menu-light" data-scroll-to-active="true">
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class="{% if current_route == 'dashboard_index' %}active {% else %}nav-item{% endif %}">
+                <a href="{{ path('dashboard_index') }}">
+                    <i class="icon-home"></i><span class="menu-title">Dashboard</span>
+                </a>
+            </li>
+
+            <li class="{% if current_route matches '/^game_.*/' %}active {% else %}nav-item{% endif %}">
+                <a href="{{ path('game_list') }}">
+                    <i class="icon-social-dribbble"></i><span class="menu-title">Matchs</span>
+                </a>
+            </li>
+
+            <li class="{% if current_route matches '/^user_.*/' %}active {% else %}nav-item{% endif %}">
+                <a href="{{ path('user_list') }}">
+                    <i class="icon-user"></i><span class="menu-title">Utilisateurs</span>
+                </a>
+            </li>
+            <li class="{% if current_route matches '/^order_.*/' %}active {% else %}nav-item{% endif %}">
+                <a href="{{ path('order_list') }}">
+                    <i class="ft-shopping-cart"></i><span class="menu-title">Commandes</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

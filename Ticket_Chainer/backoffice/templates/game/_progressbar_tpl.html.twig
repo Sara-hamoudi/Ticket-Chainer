@@ -1,0 +1,10 @@
+<noscript id="datatable_progressbar_tpl" type="x-tmpl-mustache">
+    <div>
+        <p class="m-0">{{ '{{ value }}' }}/{{ '{{ max }}' }} <span
+                    class="success float-right">{{ '{{ rate }}' }}%</span></p>
+        <div class="progress" style="height: 7px;">
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="{{ '{{ rate }}' }}" aria-valuemin="0"
+                 aria-valuemax="100" style="width:{{ '{{ rate }}' }}%"></div>
+        </div>
+    </div>
+</noscript>
