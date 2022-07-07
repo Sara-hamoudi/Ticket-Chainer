@@ -28,7 +28,7 @@
         "datatables.net-responsive": "^2.2.3",
         "daterangepicker": "^3.0.5",
         "jquery": "^3.4.1",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "mustache": "^3.1.0",
         "pace": "^0.0.4",
         "pace-js": "^1.0.2",
